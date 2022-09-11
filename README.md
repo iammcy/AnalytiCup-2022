@@ -13,11 +13,11 @@ python setup.py install
 python federatedscope/main.py --cfg federatedscope/gfl/baseline/myconf_on_cikmcup.yaml --client_cfg federatedscope/gfl/baseline/myconf_on_cikmcup_per_client.yaml
 ```
 
-<p align="center"> <img src="https://gitee.com/EdisonLeeeee/pic-bed/raw/master/images/image-20220911174256005.png" /> <p align="center">Figure 1. Algorithm framework of GNN model.</p>
+<p align="center"> <img src="img/GNN.png" /> <p align="center">Figure 1. Algorithm framework of GNN model.</p>
 
 - Brief introduction of the developed algorithm:
 
-> 1. The algorithm framework of adopted GNN model is shown in Figure 1
+> 1. The algorithm framework of adopted GNN model is shown in Figure 1.
 > 2. The hidden layer dimension is set to `128`, and the number of local updates is `10` epochs (except client9, 10, and 13, which are set to `1`).
 > 3. We add `BatchNorm` layer in the GNN_Net_Graph before classification
 > 4. We embed the `edge_attr` of the graph data and adopt the `GINEConv` layer to encode the graph data
@@ -27,10 +27,12 @@ python federatedscope/main.py --cfg federatedscope/gfl/baseline/myconf_on_cikmcu
 > 8. At the same time, we extend the node attributes of the graph data. Specifically, the edge attributes of the nodes are aggregated and added and then concatenated into the node attributes. Implementation in `data/process.py`
 > 9. Finally, we incorporate validation set data during training to improve our score.
 
+<p align="center"> <img src="img/federated.png" /> <p align="center">Figure 2. Algorithm framework of Federated Learning.</p>
+
 - If it is a federated learning method:
 > Our solution is an algorithm based on federated learning.
 >
-> 1. We use "FedBN+ft" as the main framework of heterogeneous task federated learning
+> 1. We use "FedBN+ft" as the main framework of heterogeneous task federated learning, which is shown in Figure 2. 
 > 2. First, the type of information transmitted between client and server is "model_para", which includes "sample_size" and "model_para_all".
 > 3. Second, our federated learning algorithm is the baseline "FedBN".
 > 4. Furthermore, we adopt a "finetune" approach before evaluating, which uses the training, validation, and test data (excluding labels) to finetune the "running_mean" and "running_var" of the BatchNorm layer.
