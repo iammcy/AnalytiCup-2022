@@ -2,7 +2,7 @@
 
 This is the source code for CIKM 2022 AnalytiCup Competition [[link](https://tianchi.aliyun.com/competition/entrance/532008/introduction)]. Another repository [[link](https://github.com/EdisonLeeeee/CIKM22_FL_Competition)]
 
-Team name: GTML-GEAR 
+Team name: **GTML-GEAR**, Final Score: **55.2703** 
 
 - To run the code:
 ```sh
@@ -13,7 +13,7 @@ python setup.py install
 python federatedscope/main.py --cfg federatedscope/gfl/baseline/myconf_on_cikmcup.yaml --client_cfg federatedscope/gfl/baseline/myconf_on_cikmcup_per_client.yaml
 ```
 
-<p align="center"> <img src="img/GNN.png" /> <p align="center">Figure 1. Algorithm framework of GNN model.</p>
+<p align="center"> <img src="imgs/gnn.png" /> <p align="center">Figure 1. Algorithm framework of GNN model.</p>
 
 - Brief introduction of the developed algorithm:
 
@@ -27,7 +27,7 @@ python federatedscope/main.py --cfg federatedscope/gfl/baseline/myconf_on_cikmcu
 > 8. At the same time, we extend the node attributes of the graph data. Specifically, the edge attributes of the nodes are aggregated and added and then concatenated into the node attributes. Implementation in `data/process.py`
 > 9. Finally, we incorporate validation set data during training to improve our score.
 
-<p align="center"> <img src="img/federated.png" /> <p align="center">Figure 2. Algorithm framework of Federated Learning.</p>
+<p align="center"> <img src="imgs/federated.png" /> <p align="center">Figure 2. Algorithm framework of Federated Learning.</p>
 
 - If it is a federated learning method:
 > Our solution is an algorithm based on federated learning.
